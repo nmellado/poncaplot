@@ -61,6 +61,7 @@ struct FitField : public BaseFitField {
 };
 
 using PlaneFitField = FitField<PlaneFit>;
+using QuadricFitField = FitField<QuadricFit>;
 
 struct SphereFitField : public FitField<SphereFit>{
     void postProcess(typename FitField<SphereFit>::FitType& fit) override { fit.applyPrattNorm(); };

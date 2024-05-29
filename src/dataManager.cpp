@@ -142,6 +142,9 @@ DataManager::getDrawingPass(size_t index){
             case 4: // Unoriented Sphere
                 *p = new UnorientedSphereFitField();
                 break;
+            case 5: // Unoriented Sphere
+                *p = new QuadricFitField();
+                break;
             default:
                 break;
         }

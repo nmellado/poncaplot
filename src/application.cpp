@@ -137,6 +137,7 @@ Screen(Vector2i(1200, 1024), "PoncaPlot"), m_dataMgr(mgr){
     passSphereFit = dynamic_cast<BaseFitField*>(m_dataMgr->getDrawingPass("Sphere"));
     passOrientedSphereFit = dynamic_cast<BaseFitField*>(m_dataMgr->getDrawingPass("Oriented Sphere"));
     passUnorientedSphereFit = dynamic_cast<BaseFitField*>(m_dataMgr->getDrawingPass("Unoriented Sphere"));
+    passQuadricFit = dynamic_cast<BaseFitField*>(m_dataMgr->getDrawingPass("Quadric"));
 
     {
         genericFitWidget = new nanogui::Widget(window);
@@ -151,6 +152,7 @@ Screen(Vector2i(1200, 1024), "PoncaPlot"), m_dataMgr(mgr){
             passSphereFit->m_scale = value;
             passOrientedSphereFit->m_scale = value;
             passUnorientedSphereFit->m_scale = value;
+            passQuadricFit->m_scale = value;
             renderPasses();
         });
 
@@ -166,6 +168,7 @@ Screen(Vector2i(1200, 1024), "PoncaPlot"), m_dataMgr(mgr){
             passSphereFit->m_iter = value;
             passOrientedSphereFit->m_iter = value;
             passUnorientedSphereFit->m_iter = value;
+            passQuadricFit->m_iter = value;
             renderPasses();
         });
     }
@@ -174,6 +177,7 @@ Screen(Vector2i(1200, 1024), "PoncaPlot"), m_dataMgr(mgr){
     CONFIG_PONCA_FIT_INTERFACE(sphereFitWidget,passSphereFit,combo->items()[2])
     CONFIG_PONCA_FIT_INTERFACE(orientedSphereFitWidget,passOrientedSphereFit,combo->items()[3])
     CONFIG_PONCA_FIT_INTERFACE(unorientedSphereFitWidget,passUnorientedSphereFit,combo->items()[4])
+    CONFIG_PONCA_FIT_INTERFACE(quadricFitWidget,passQuadricFit,combo->items()[5])
 
     // create pass 3 interface
     {
@@ -299,6 +303,7 @@ PoncaPlotApplication::buildPassInterface(int id){
     sphereFitWidget->set_visible(false);
     orientedSphereFitWidget->set_visible(false);
     unorientedSphereFitWidget->set_visible(false);
+    quadricFitWidget->set_visible(false);
     switch (id) {
         case 0:
             distanceFieldWidget->set_visible(true);
@@ -318,6 +323,10 @@ PoncaPlotApplication::buildPassInterface(int id){
         case 4:
             genericFitWidget->set_visible(true);
             unorientedSphereFitWidget->set_visible(true);
+            break;
+        case 5:
+            genericFitWidget->set_visible(true);
+            quadricFitWidget->set_visible(true);
             break;
         default: throw std::runtime_error("Unknown Field type!");
     }

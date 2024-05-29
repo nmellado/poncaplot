@@ -26,6 +26,7 @@ using PlaneFit = Ponca::Basket<DataPoint ,WeightFunc, Ponca::CovariancePlaneFit>
 using SphereFit = Ponca::Basket<DataPoint ,WeightFunc, Ponca::SphereFit>;
 using OrientedSphereFit= Ponca::Basket<DataPoint ,WeightFunc, Ponca::OrientedSphereFit>;
 using UnorientedSphereFit = Ponca::Basket<DataPoint ,WeightFunc, Ponca::UnorientedSphereFit>;
+using QuadricFit = Ponca::Basket<DataPoint ,WeightFunc, Ponca::OrientedEllipsoidFit>;
 
 
 

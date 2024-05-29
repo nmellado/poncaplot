@@ -44,9 +44,9 @@ private:
     MyView *m_image_view {nullptr};
     Widget* pass1Widget, *distanceFieldWidget,
             *genericFitWidget,    //< parameters applicable to all fitting techniques
-    *planeFitWidget, *sphereFitWidget, *orientedSphereFitWidget, *unorientedSphereFitWidget,
+    *planeFitWidget, *sphereFitWidget, *orientedSphereFitWidget, *unorientedSphereFitWidget, *quadricFitWidget,
             *pass3Widget,*pass4Widget;
 
 
-    BaseFitField* passPlaneFit, *passSphereFit, *passOrientedSphereFit, *passUnorientedSphereFit;
+    BaseFitField* passPlaneFit, *passSphereFit, *passOrientedSphereFit, *passUnorientedSphereFit, *passQuadricFit;
 };

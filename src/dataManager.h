@@ -71,13 +71,14 @@ public:
     void computeNormals(int k = 3);
 
     /// Names of the supported drawing passes
-    static constexpr size_t nbSupportedDrawingPasses = 5;
+    static constexpr size_t nbSupportedDrawingPasses = 6;
     const std::map<const std::string, size_t> supportedDrawingPasses {
                     {"Distance Field", 0},
                     {"Plane", 1},
                     {"Sphere", 2},
                     {"Oriented Sphere", 3},
-                    {"Unoriented Sphere", 4}
+                    {"Unoriented Sphere", 4},
+                    {"Quadric", 5},
             };
 
     DrawingPass* getDrawingPass(const std::string& name);
@@ -103,6 +104,9 @@ public:
                 break;
             case 4: // Unoriented Sphere
                 f(dynamic_cast<UnorientedSphereFitField*>(getDrawingPass(4)));
+                break;
+            case 5: // Quadric
+                f(dynamic_cast<QuadricFitField*>(getDrawingPass(5)));
                 break;
             default:
                 return false;
